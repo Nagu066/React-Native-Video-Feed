@@ -1,15 +1,25 @@
-import { createMMKV, MMKV } from 'react-native-mmkv';
+interface MMKVInstance {
+  getBoolean: (key: string) => boolean | undefined;
+  set: (key: string, value: boolean | number | string) => void;
+  getNumber: (key: string) => number | undefined;
+  getString: (key: string) => string | undefined;
+}
 
-// Safe instantiation to guarantee zero crash in any test/mock environment
-let storageInstance: MMKV | null = null;
+// Safe instantiation: Uses MMKV natively in Dev Clients / Bare RN,
+// and falls back gracefully in Expo Go (where NitroModules is absent).
+let storageInstance: MMKVInstance | null = null;
 const fallbackStorage = new Map<string, string | number | boolean>();
 
 try {
-  storageInstance = createMMKV({
-    id: 'linksphere-feed-storage',
-  });
-} catch (e) {
-  console.warn('MMKV native JSI not available, using in-memory fallback adapter');
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const mmkvModule = require('react-native-mmkv');
+  if (mmkvModule && typeof mmkvModule.createMMKV === 'function') {
+    storageInstance = mmkvModule.createMMKV({
+      id: 'linksphere-feed-storage',
+    });
+  }
+} catch {
+  // Running in Expo Go or non-native environment where NitroModules is not compiled in
 }
 
 export const feedStorage = {
