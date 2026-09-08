@@ -8,12 +8,20 @@ interface FeedItemRendererProps {
   isActive: boolean;
   isMuted: boolean;
   onToggleMute: () => void;
+  itemWidth?: number;
+  itemHeight?: number;
 }
 
 export const FeedItemRenderer: React.FC<FeedItemRendererProps> = React.memo(
-  ({ item, isActive, isMuted, onToggleMute }) => {
+  ({ item, isActive, isMuted, onToggleMute, itemWidth, itemHeight }) => {
     if (item.type === 'ad') {
-      return <SponsoredAdCell item={item} />;
+      return (
+        <SponsoredAdCell
+          item={item}
+          itemWidth={itemWidth}
+          itemHeight={itemHeight}
+        />
+      );
     }
 
     return (
@@ -22,6 +30,8 @@ export const FeedItemRenderer: React.FC<FeedItemRendererProps> = React.memo(
         isActive={isActive}
         isMuted={isMuted}
         onToggleMute={onToggleMute}
+        itemWidth={itemWidth}
+        itemHeight={itemHeight}
       />
     );
   }

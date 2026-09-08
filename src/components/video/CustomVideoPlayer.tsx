@@ -12,6 +12,8 @@ interface CustomVideoPlayerProps {
   isActive: boolean;
   isMuted: boolean;
   posterUrl: string;
+  itemWidth?: number;
+  itemHeight?: number;
 }
 
 export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
@@ -20,6 +22,8 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
   isActive,
   isMuted,
   posterUrl,
+  itemWidth,
+  itemHeight,
 }) => {
   const isUpscaled = quality === 'AI_UPSCALE_HD';
   const targetUrl = isUpscaled ? streams.upscaledUrl : streams.standardUrl;
@@ -130,7 +134,7 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
   }, [targetUrl, player, isActive, hasStartedPlaying]);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, itemWidth && itemHeight ? { width: itemWidth, height: itemHeight } : null]}>
       {/* Background Poster fallback */}
       <Image
         source={{ uri: posterUrl }}

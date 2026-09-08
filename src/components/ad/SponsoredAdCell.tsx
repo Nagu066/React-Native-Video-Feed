@@ -16,9 +16,15 @@ const { width: WINDOW_WIDTH, height: WINDOW_HEIGHT } = Dimensions.get('window');
 
 interface SponsoredAdCellProps {
   item: AdItem;
+  itemWidth?: number;
+  itemHeight?: number;
 }
 
-export const SponsoredAdCell: React.FC<SponsoredAdCellProps> = ({ item }) => {
+export const SponsoredAdCell: React.FC<SponsoredAdCellProps> = ({
+  item,
+  itemWidth,
+  itemHeight,
+}) => {
   const handleOpenCta = async () => {
     try {
       const supported = await Linking.canOpenURL(item.ctaUrl);
@@ -31,7 +37,7 @@ export const SponsoredAdCell: React.FC<SponsoredAdCellProps> = ({ item }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, itemWidth && itemHeight ? { width: itemWidth, height: itemHeight } : null]}>
       {/* Zero CLS Guarantee: Full viewport background image */}
       <Image
         source={{ uri: item.mediaUrl }}

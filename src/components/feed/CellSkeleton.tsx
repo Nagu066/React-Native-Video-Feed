@@ -13,9 +13,15 @@ const { width: WINDOW_WIDTH, height: WINDOW_HEIGHT } = Dimensions.get('window');
 
 interface CellSkeletonProps {
   type?: 'video' | 'ad';
+  itemWidth?: number;
+  itemHeight?: number;
 }
 
-export const CellSkeleton: React.FC<CellSkeletonProps> = ({ type = 'video' }) => {
+export const CellSkeleton: React.FC<CellSkeletonProps> = ({
+  type = 'video',
+  itemWidth,
+  itemHeight,
+}) => {
   const opacity = useSharedValue(0.25);
 
   useEffect(() => {
@@ -31,7 +37,7 @@ export const CellSkeleton: React.FC<CellSkeletonProps> = ({ type = 'video' }) =>
   }));
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, itemWidth && itemHeight ? { width: itemWidth, height: itemHeight } : null]}>
       {/* Background base layer to prevent any CLS layout jump */}
       <View style={styles.backdrop} />
 

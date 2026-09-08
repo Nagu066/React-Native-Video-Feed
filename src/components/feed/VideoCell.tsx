@@ -22,6 +22,8 @@ interface VideoCellProps {
   isActive: boolean;
   isMuted: boolean;
   onToggleMute: () => void;
+  itemWidth?: number;
+  itemHeight?: number;
 }
 
 export const VideoCell: React.FC<VideoCellProps> = ({
@@ -29,6 +31,8 @@ export const VideoCell: React.FC<VideoCellProps> = ({
   isActive,
   isMuted,
   onToggleMute,
+  itemWidth,
+  itemHeight,
 }) => {
   const heartRef = useRef<FloatingHeartHandle>(null);
   const hudRef = useRef<UpscaleHUDHandle>(null);
@@ -89,7 +93,7 @@ export const VideoCell: React.FC<VideoCellProps> = ({
   }, []);
 
   return (
-    <View style={styles.cellContainer}>
+    <View style={[styles.cellContainer, itemWidth && itemHeight ? { width: itemWidth, height: itemHeight } : null]}>
       <GestureDetector gesture={doubleTapGesture}>
         <View style={styles.touchableArea}>
           {/* Hardware Video Surface with Memory Recycling */}
@@ -99,6 +103,8 @@ export const VideoCell: React.FC<VideoCellProps> = ({
             isActive={isActive}
             isMuted={isMuted}
             posterUrl={item.posterUrl}
+            itemWidth={itemWidth}
+            itemHeight={itemHeight}
           />
 
           {/* Task 2: Floating Heart Animation */}
