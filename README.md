@@ -4,6 +4,12 @@ A high-performance, 60+ FPS vertically scrolling virtualized video feed built wi
 
 ---
 
+## 📱 App Demo
+
+https://github.com/Nagu066/React-Native-Video-Feed/releases/download/v1.0.0/demo.mp4
+
+---
+
 ## 🚀 Key Features & Architecture
 
 ### 1. Virtualized Infinite Feed (`@shopify/flash-list`)
