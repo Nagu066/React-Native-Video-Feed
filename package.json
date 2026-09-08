@@ -3,10 +3,18 @@
   "version": "1.0.0",
   "main": "index.ts",
   "dependencies": {
+    "@shopify/flash-list": "2.0.2",
     "expo": "~57.0.20",
+    "expo-blur": "~57.0.2",
+    "expo-linear-gradient": "~57.0.1",
     "expo-status-bar": "~57.0.1",
+    "expo-video": "~57.0.3",
+    "lucide-react-native": "^1.42.0",
     "react": "19.2.3",
-    "react-native": "0.86.3"
+    "react-native": "0.86.3",
+    "react-native-gesture-handler": "~2.32.0",
+    "react-native-mmkv": "^4.3.2",
+    "react-native-reanimated": "4.5.1"
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
@@ -16,7 +24,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "test": "node --test tests/unitTest.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "private": true
 }
