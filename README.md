@@ -134,12 +134,3 @@ npm start
 | **Dynamic AI Upscale** | Tap the floating glassmorphic **"AI Upscale / HD"** button at the top-right. The animated HUD toast (`"✨ Upscaled 1080p • AI Enhanced"`) slides in and auto-dismisses after 2 seconds. Video playback continues uninterrupted from its exact current playhead timestamp (does not restart to 0:00). |
 | **Zero-CLS Ad Placement** | Scroll to the 5th item (index 4) and 10th item (index 9). The sponsored card mounts inside the identical fixed viewport dimensions without causing content reflow or layout shifts. |
 | **Memory Recycling** | Scroll past a video. Audio and frame decoding immediately halt on the off-screen video. |
-
----
-
-## 🎥 Screen Recording Checklist
-For the 30–60 second demonstration recording:
-1. **Vertical Paging (0:00 - 0:15)**: Show smooth paging snapping between multiple video cards.
-2. **Double-Tap Gesture (0:15 - 0:25)**: Double-tap on screen to showcase the 60 FPS floating heart animation and like counter increment.
-3. **Simulated Upscaling (0:25 - 0:40)**: Let a video play to 5–10 seconds, toggle "AI Upscale / HD", and highlight that playback continues seamlessly without jumping back to 0:00.
-4. **Sponsored Ad Card (0:40 - 0:55)**: Scroll to the 5th item to display the Zero-CLS sponsored card and interactive CTA.
