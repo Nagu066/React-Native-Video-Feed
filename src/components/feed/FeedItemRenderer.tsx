@@ -6,6 +6,7 @@ import { SponsoredAdCell } from '../ad/SponsoredAdCell';
 interface FeedItemRendererProps {
   item: FeedItem;
   isActive: boolean;
+  shouldPreload?: boolean;
   isMuted: boolean;
   onToggleMute: () => void;
   itemWidth?: number;
@@ -13,7 +14,7 @@ interface FeedItemRendererProps {
 }
 
 export const FeedItemRenderer: React.FC<FeedItemRendererProps> = React.memo(
-  ({ item, isActive, isMuted, onToggleMute, itemWidth, itemHeight }) => {
+  ({ item, isActive, shouldPreload = false, isMuted, onToggleMute, itemWidth, itemHeight }) => {
     if (item.type === 'ad') {
       return (
         <SponsoredAdCell
@@ -28,6 +29,7 @@ export const FeedItemRenderer: React.FC<FeedItemRendererProps> = React.memo(
       <VideoCell
         item={item}
         isActive={isActive}
+        shouldPreload={shouldPreload}
         isMuted={isMuted}
         onToggleMute={onToggleMute}
         itemWidth={itemWidth}

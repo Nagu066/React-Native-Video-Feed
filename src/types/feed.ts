@@ -8,8 +8,8 @@ export interface Author {
 }
 
 export interface VideoStreams {
-  standardUrl: string;    // 720p stream
-  upscaledUrl: string;    // 1080p high-bitrate / AI upscaled stream
+  standardUrl: any;    // 720p stream or bundled local MP4 asset
+  upscaledUrl: any;    // 1080p stream or bundled local MP4 asset
   bitrateStandard?: string; // e.g. "2.4 Mbps"
   bitrateUpscaled?: string; // e.g. "8.5 Mbps"
 }

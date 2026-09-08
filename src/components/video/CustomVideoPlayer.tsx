@@ -10,6 +10,7 @@ interface CustomVideoPlayerProps {
   streams: VideoStreams;
   quality: VideoQuality;
   isActive: boolean;
+  shouldPreload?: boolean;
   isMuted: boolean;
   posterUrl: string;
   itemWidth?: number;
@@ -20,6 +21,7 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
   streams,
   quality,
   isActive,
+  shouldPreload = false,
   isMuted,
   posterUrl,
   itemWidth,
@@ -142,8 +144,8 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
         resizeMode="cover"
       />
 
-      {/* Active Hardware Video Player surface: Only mounted when active or ready */}
-      {isActive ? (
+      {/* Hardware Video Player surface: Pre-buffered when adjacent, actively decoding/playing when focused */}
+      {isActive || shouldPreload ? (
         <VideoView
           player={player}
           style={StyleSheet.absoluteFill}

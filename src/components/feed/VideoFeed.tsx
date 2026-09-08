@@ -44,14 +44,18 @@ export const VideoFeed: React.FC = () => {
   const [activeItemId, setActiveItemId] = useState<string>(feedData[0]?.id ?? '');
   const [isMuted, setIsMuted] = useState<boolean>(false);
 
+  const activeItemIndex = useMemo(
+    () => feedData.findIndex((i) => i.id === activeItemId),
+    [feedData, activeItemId]
+  );
+
   const toggleMute = useCallback(() => {
     setIsMuted((prev) => !prev);
   }, []);
 
-  // Viewability config: requires 80% visibility to trigger focused autoplay
+  // Viewability config: 60% visibility threshold without delay for instant response
   const viewabilityConfig = useRef({
-    itemVisiblePercentThreshold: 80,
-    minimumViewTime: 100,
+    itemVisiblePercentThreshold: 60,
   }).current;
 
   // Task 1: Autoplay only focused video cell in the viewport, pause & release others immediately
@@ -65,12 +69,15 @@ export const VideoFeed: React.FC = () => {
   ).current;
 
   const renderItem = useCallback(
-    ({ item }: { item: FeedItem }) => {
+    ({ item, index }: { item: FeedItem; index: number }) => {
       const isActive = item.id === activeItemId;
+      // Preload adjacent video cells (index - 1, index + 1) for instantaneous 0ms playback
+      const shouldPreload = Math.abs(index - activeItemIndex) <= 1;
       return (
         <FeedItemRenderer
           item={item}
           isActive={isActive}
+          shouldPreload={shouldPreload}
           isMuted={isMuted}
           onToggleMute={toggleMute}
           itemWidth={feedDimensions.width}
@@ -78,7 +85,7 @@ export const VideoFeed: React.FC = () => {
         />
       );
     },
-    [activeItemId, isMuted, toggleMute, feedDimensions]
+    [activeItemId, activeItemIndex, isMuted, toggleMute, feedDimensions]
   );
 
   const keyExtractor = useCallback((item: FeedItem) => item.id, []);

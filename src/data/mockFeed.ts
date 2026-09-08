@@ -1,5 +1,10 @@
 import { VideoItem, AdItem, FeedItem } from '../types/feed';
 
+// Bundled local assets for instant, 0-latency playback without network buffering
+const sampleVideo1 = require('../../assets/videos/sample1.mp4');
+const sampleVideo2 = require('../../assets/videos/sample2.mp4');
+const sampleVideo3 = require('../../assets/videos/sample3.mp4');
+
 export const RAW_VIDEOS: VideoItem[] = [
   {
     id: 'vid-101',
@@ -15,8 +20,8 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Cyberpunk Odyssey • Synthwave Originals',
     posterUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: 'https://media.w3.org/2010/05/sintel/trailer.mp4',
-      upscaledUrl: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',
+      standardUrl: sampleVideo1,
+      upscaledUrl: sampleVideo1,
       bitrateStandard: '720p • 2.2 Mbps',
       bitrateUpscaled: '1080p • 6.8 Mbps (AI Enhanced)',
     },
@@ -34,13 +39,13 @@ export const RAW_VIDEOS: VideoItem[] = [
       avatarUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80',
       verified: true,
     },
-    caption: 'Deep blue oceanic fluid dynamics simulation under polarized optics. Notice the ray tracing detail! 🔮🌊',
-    tags: ['#FluidDynamics', '#Cinematic', '#RayTracing'],
+    caption: 'Tokyo midnight reflections under high dynamic range lenses. Notice the edge detail in the neon signs. 🔮🌃',
+    tags: ['#TokyoNights', '#Cinematic', '#4KWalks'],
     musicTrack: 'Neon Drift • Midnight Lo-Fi Beats',
     posterUrl: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: 'https://vjs.zencdn.net/v/oceans.mp4',
-      upscaledUrl: 'https://vjs.zencdn.net/v/oceans.mp4',
+      standardUrl: sampleVideo2,
+      upscaledUrl: sampleVideo2,
       bitrateStandard: '720p • 2.5 Mbps',
       bitrateUpscaled: '1080p • 8.1 Mbps (Neural Upscaled)',
     },
@@ -63,8 +68,8 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Apex Horizon • Orchestral Bass',
     posterUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: 'https://media.w3.org/2010/05/bunny/trailer.mp4',
-      upscaledUrl: 'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+      standardUrl: sampleVideo3,
+      upscaledUrl: sampleVideo3,
       bitrateStandard: '720p • 2.0 Mbps',
       bitrateUpscaled: '1080p • 7.4 Mbps (SuperRes v3)',
     },
@@ -87,8 +92,8 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Starlight Pulse • Deep Ambient Wave',
     posterUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: 'https://media.w3.org/2010/05/video/movie_300.mp4',
-      upscaledUrl: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8',
+      standardUrl: sampleVideo1,
+      upscaledUrl: sampleVideo1,
       bitrateStandard: '720p • 2.4 Mbps',
       bitrateUpscaled: '1080p • 7.9 Mbps (AI HDR10)',
     },
@@ -111,8 +116,8 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Glass Shadows • Acoustic Fusion',
     posterUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: 'https://vjs.zencdn.net/v/oceans.mp4',
-      upscaledUrl: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',
+      standardUrl: sampleVideo2,
+      upscaledUrl: sampleVideo2,
       bitrateStandard: '720p • 2.1 Mbps',
       bitrateUpscaled: '1080p • 6.5 Mbps (AI Clarity)',
     },
@@ -135,8 +140,8 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Overdrive Ignition • Electronic Drive',
     posterUrl: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: 'https://media.w3.org/2010/05/sintel/trailer.mp4',
-      upscaledUrl: 'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+      standardUrl: sampleVideo3,
+      upscaledUrl: sampleVideo3,
       bitrateStandard: '720p • 2.6 Mbps',
       bitrateUpscaled: '1080p • 8.6 Mbps (UltraHD Pro)',
     },
@@ -159,8 +164,8 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Northern Solitude • Nordic Folk Flute',
     posterUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: 'https://media.w3.org/2010/05/bunny/trailer.mp4',
-      upscaledUrl: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8',
+      standardUrl: sampleVideo1,
+      upscaledUrl: sampleVideo1,
       bitrateStandard: '720p • 2.3 Mbps',
       bitrateUpscaled: '1080p • 7.7 Mbps (AI Upscaled)',
     },

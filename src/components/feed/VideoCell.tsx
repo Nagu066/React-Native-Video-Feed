@@ -20,6 +20,7 @@ const { width: WINDOW_WIDTH, height: WINDOW_HEIGHT } = Dimensions.get('window');
 interface VideoCellProps {
   item: VideoItem;
   isActive: boolean;
+  shouldPreload?: boolean;
   isMuted: boolean;
   onToggleMute: () => void;
   itemWidth?: number;
@@ -29,6 +30,7 @@ interface VideoCellProps {
 export const VideoCell: React.FC<VideoCellProps> = ({
   item,
   isActive,
+  shouldPreload = false,
   isMuted,
   onToggleMute,
   itemWidth,
@@ -101,6 +103,7 @@ export const VideoCell: React.FC<VideoCellProps> = ({
             streams={item.streams}
             quality={quality}
             isActive={isActive}
+            shouldPreload={shouldPreload}
             isMuted={isMuted}
             posterUrl={item.posterUrl}
             itemWidth={itemWidth}
