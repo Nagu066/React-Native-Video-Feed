@@ -47,7 +47,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Overdrive Ignition • Cyberpunk Bass',
     posterUrl: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: supercarSD,
+      standardUrl: supercarHD,
       upscaledUrl: supercarHD,
       bitrateStandard: '720p • 2.4 Mbps',
       bitrateUpscaled: '1080p • 8.4 Mbps (AI Enhanced)',
@@ -71,7 +71,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Neon Drift • Midnight Lo-Fi Beats',
     posterUrl: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: citySD,
+      standardUrl: cityHD,
       upscaledUrl: cityHD,
       bitrateStandard: '720p • 2.2 Mbps',
       bitrateUpscaled: '1080p • 7.8 Mbps (Neural HDR)',
@@ -95,7 +95,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Abyssal Pulse • Ambient Deep Wave',
     posterUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: jellyfishSD,
+      standardUrl: jellyfishHD,
       upscaledUrl: jellyfishHD,
       bitrateStandard: '720p • 2.0 Mbps',
       bitrateUpscaled: '1080p • 9.2 Mbps (SuperRes v3)',
@@ -119,7 +119,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Starlight Pulse • Deep Ambient Wave',
     posterUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: spaceSD,
+      standardUrl: spaceHD,
       upscaledUrl: spaceHD,
       bitrateStandard: '720p • 1.8 Mbps',
       bitrateUpscaled: '1080p • 8.1 Mbps (Neural AI)',
@@ -143,7 +143,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Echoes of Rain • Ambient Forest Streams',
     posterUrl: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: waterfallVideo,
+      standardUrl: waterfallHD,
       upscaledUrl: waterfallHD,
       bitrateStandard: '720p • 2.6 Mbps',
       bitrateUpscaled: '1080p • 8.8 Mbps (HDR Vivid)',
@@ -167,7 +167,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Summit Winds • Nordic Acoustic',
     posterUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: mountainVideo,
+      standardUrl: mountainHD,
       upscaledUrl: mountainHD,
       bitrateStandard: '720p • 2.1 Mbps',
       bitrateUpscaled: '1080p • 7.5 Mbps (AI Clarity)',
@@ -192,7 +192,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: auroraVideo,
-      upscaledUrl: spaceHD,
+      upscaledUrl: auroraVideo,
       bitrateStandard: '720p • 2.5 Mbps',
       bitrateUpscaled: '1080p • 8.3 Mbps (Neural HDR)',
     },
@@ -215,7 +215,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Desert Mirage • Oud & Strings',
     posterUrl: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: desertVideo,
+      standardUrl: desertHD,
       upscaledUrl: desertHD,
       bitrateStandard: '720p • 2.2 Mbps',
       bitrateUpscaled: '1080p • 7.9 Mbps (AI SuperRes)',
@@ -240,7 +240,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: oceansVideo,
-      upscaledUrl: jellyfishHD,
+      upscaledUrl: oceansVideo,
       bitrateStandard: '720p • 2.8 Mbps',
       bitrateUpscaled: '1080p • 9.0 Mbps (AI 60FPS)',
     },
@@ -264,7 +264,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: forestVideo,
-      upscaledUrl: waterfallHD,
+      upscaledUrl: forestVideo,
       bitrateStandard: '720p • 2.3 Mbps',
       bitrateUpscaled: '1080p • 8.0 Mbps (AI Enhanced)',
     },
@@ -287,7 +287,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     musicTrack: 'Tidal Rhythm • Chillhop Beats',
     posterUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80',
     streams: {
-      standardUrl: wavesVideo,
+      standardUrl: wavesHD,
       upscaledUrl: wavesHD,
       bitrateStandard: '720p • 2.0 Mbps',
       bitrateUpscaled: '1080p • 7.6 Mbps (UltraHD)',
@@ -312,7 +312,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: aerialVideo,
-      upscaledUrl: mountainHD,
+      upscaledUrl: aerialVideo,
       bitrateStandard: '720p • 2.4 Mbps',
       bitrateUpscaled: '1080p • 8.5 Mbps (Neural Pro)',
     },

@@ -58,7 +58,9 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
 
     const statusChangeSub = player.addListener('statusChange', (event) => {
       if (event.status === 'loading') {
-        setIsBuffering(true);
+        if (!isSwitchingQualityRef.current && !hasStartedPlaying) {
+          setIsBuffering(true);
+        }
       } else if (event.status === 'readyToPlay') {
         setIsBuffering(false);
         setHasStartedPlaying(true);
@@ -176,7 +178,7 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
       ) : null}
 
       {/* Loading & Buffering Spinner */}
-      {isBuffering && isActive ? (
+      {isBuffering && isActive && !hasStartedPlaying ? (
         <View style={styles.bufferContainer}>
           <ActivityIndicator size="large" color={colors.secondary} />
         </View>
@@ -208,9 +210,9 @@ const styles = StyleSheet.create({
   },
   upscaleBadge: {
     position: 'absolute',
-    top: 56,
+    top: 104,
     left: 18,
-    backgroundColor: 'rgba(6, 182, 212, 0.25)',
+    backgroundColor: 'rgba(15, 23, 42, 0.85)',
     borderColor: 'rgba(6, 182, 212, 0.6)',
     borderWidth: 1,
     paddingHorizontal: 8,
