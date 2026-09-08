@@ -115,17 +115,18 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
     playheadRef.current = currentPosition;
     isSwitchingQualityRef.current = true;
 
-    try {
-      // Replace video stream source seamlessly
-      player.replace(targetUrl);
-      // Immediately set target position
-      player.currentTime = currentPosition;
-      if (isActive) {
-        player.play();
-      }
-    } catch {
-      isSwitchingQualityRef.current = false;
-    }
+    // Replace video stream source seamlessly and asynchronously
+    player
+      .replaceAsync(targetUrl)
+      .then(() => {
+        player.currentTime = currentPosition;
+        if (isActive) {
+          player.play();
+        }
+      })
+      .catch(() => {
+        isSwitchingQualityRef.current = false;
+      });
   }, [targetUrl, player, isActive, hasStartedPlaying]);
 
   return (
