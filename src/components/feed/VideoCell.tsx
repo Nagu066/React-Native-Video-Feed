@@ -85,20 +85,18 @@ export const VideoCell: React.FC<VideoCellProps> = ({
 
   // Task 3: Toggle Upscale Mode
   const handleToggleUpscale = useCallback(() => {
-    setQuality((prev) => {
-      const nextQuality: VideoQuality =
-        prev === 'AI_UPSCALE_HD' ? 'SD' : 'AI_UPSCALE_HD';
-      setStoredUpscalePreference(nextQuality === 'AI_UPSCALE_HD');
-      hudRef.current?.showToast(nextQuality);
-      return nextQuality;
-    });
-  }, []);
+    const nextQuality: VideoQuality =
+      quality === 'AI_UPSCALE_HD' ? 'SD' : 'AI_UPSCALE_HD';
+    setQuality(nextQuality);
+    setStoredUpscalePreference(nextQuality === 'AI_UPSCALE_HD');
+    hudRef.current?.showToast(nextQuality);
+  }, [quality]);
 
   return (
     <View style={[styles.cellContainer, itemWidth && itemHeight ? { width: itemWidth, height: itemHeight } : null]}>
+      {/* Hardware Video Surface with Double-Tap Gesture */}
       <GestureDetector gesture={doubleTapGesture}>
         <View style={styles.touchableArea}>
-          {/* Hardware Video Surface with Memory Recycling */}
           <CustomVideoPlayer
             streams={item.streams}
             quality={quality}
@@ -112,30 +110,30 @@ export const VideoCell: React.FC<VideoCellProps> = ({
 
           {/* Task 2: Floating Heart Animation */}
           <FloatingHeart ref={heartRef} />
-
-          {/* Task 3: Sparkles Toggle + 2s Animated HUD Toast */}
-          <UpscaleHUD
-            ref={hudRef}
-            currentQuality={quality}
-            onToggle={handleToggleUpscale}
-            bitrateLabel={
-              quality === 'AI_UPSCALE_HD'
-                ? item.streams.bitrateUpscaled
-                : item.streams.bitrateStandard
-            }
-          />
-
-          {/* Video Metadata Overlay & Action Rail */}
-          <VideoOverlay
-            item={item}
-            isLiked={isLiked}
-            likesCount={likesCount}
-            onLikePress={executeOptimisticLike}
-            isMuted={isMuted}
-            onToggleMute={onToggleMute}
-          />
         </View>
       </GestureDetector>
+
+      {/* Video Metadata Overlay & Action Rail */}
+      <VideoOverlay
+        item={item}
+        isLiked={isLiked}
+        likesCount={likesCount}
+        onLikePress={executeOptimisticLike}
+        isMuted={isMuted}
+        onToggleMute={onToggleMute}
+      />
+
+      {/* Task 3: Sparkles Toggle + 2s Animated HUD Toast (Mounted at top layer so clicks are 100% reliable) */}
+      <UpscaleHUD
+        ref={hudRef}
+        currentQuality={quality}
+        onToggle={handleToggleUpscale}
+        bitrateLabel={
+          quality === 'AI_UPSCALE_HD'
+            ? item.streams.bitrateUpscaled
+            : item.streams.bitrateStandard
+        }
+      />
     </View>
   );
 };

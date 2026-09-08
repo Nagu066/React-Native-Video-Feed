@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { StyleSheet, View, Image, Dimensions, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Image, Text, Dimensions, ActivityIndicator } from 'react-native';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { VideoQuality, VideoStreams } from '../../types/feed';
 import { colors } from '../../theme/tokens';
@@ -112,12 +112,20 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
     player.muted = isMuted;
   }, [player, isMuted]);
 
+  const previousTargetUrlRef = useRef(targetUrl);
+
   // Task 3: Dynamic Resolution Switching with Preserved currentTime
   useEffect(() => {
-    if (!player || !hasStartedPlaying) return;
+    if (!player) return;
+
+    // Only switch if targetUrl actually changed from previous
+    if (previousTargetUrlRef.current === targetUrl) {
+      return;
+    }
+    previousTargetUrlRef.current = targetUrl;
 
     // Capture current time before swapping source
-    const currentPosition = player.currentTime || playheadRef.current;
+    const currentPosition = player.currentTime > 0 ? player.currentTime : playheadRef.current;
     playheadRef.current = currentPosition;
     isSwitchingQualityRef.current = true;
 
@@ -125,15 +133,19 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
     player
       .replaceAsync(targetUrl)
       .then(() => {
-        player.currentTime = currentPosition;
-        if (isActive) {
-          player.play();
+        try {
+          player.currentTime = currentPosition;
+          if (isActive) {
+            player.play();
+          }
+        } catch {
+          // ignore
         }
       })
       .catch(() => {
         isSwitchingQualityRef.current = false;
       });
-  }, [targetUrl, player, isActive, hasStartedPlaying]);
+  }, [targetUrl, player, isActive]);
 
   return (
     <View style={[styles.container, itemWidth && itemHeight ? { width: itemWidth, height: itemHeight } : null]}>
@@ -156,7 +168,11 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
 
       {/* Task 3: Dynamic AI Sharpness & Contrast Simulation Layer */}
       {isUpscaled && isActive ? (
-        <View pointerEvents="none" style={styles.upscaleEnhancementLayer} />
+        <View pointerEvents="none" style={styles.upscaleEnhancementLayer}>
+          <View style={styles.upscaleBadge}>
+            <Text style={styles.upscaleBadgeText}>✨ AI NEURAL 1080p</Text>
+          </View>
+        </View>
       ) : null}
 
       {/* Loading & Buffering Spinner */}
@@ -186,8 +202,25 @@ const styles = StyleSheet.create({
   // High-pass dynamic contrast simulation overlay
   upscaleEnhancementLayer: {
     ...StyleSheet.absoluteFill,
-    borderWidth: 0.5,
-    borderColor: 'rgba(6, 182, 212, 0.15)',
-    backgroundColor: 'rgba(6, 182, 212, 0.02)',
+    borderWidth: 1.5,
+    borderColor: 'rgba(6, 182, 212, 0.35)',
+    backgroundColor: 'rgba(6, 182, 212, 0.03)',
+  },
+  upscaleBadge: {
+    position: 'absolute',
+    top: 56,
+    left: 18,
+    backgroundColor: 'rgba(6, 182, 212, 0.25)',
+    borderColor: 'rgba(6, 182, 212, 0.6)',
+    borderWidth: 1,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 6,
+  },
+  upscaleBadgeText: {
+    color: '#22D3EE',
+    fontSize: 9,
+    fontWeight: '800',
+    letterSpacing: 0.6,
   },
 });

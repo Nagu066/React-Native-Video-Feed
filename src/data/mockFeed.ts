@@ -14,12 +14,22 @@ const spaceSD = require('../../assets/videos/space_sd.mp4');
 const spaceHD = require('../../assets/videos/space_hd.mp4');
 
 const waterfallVideo = require('../../assets/videos/waterfall.mp4');
+const waterfallHD = require('../../assets/videos/waterfall_hd.mp4');
+
 const mountainVideo = require('../../assets/videos/mountain.mp4');
+const mountainHD = require('../../assets/videos/mountain_hd.mp4');
+
 const auroraVideo = require('../../assets/videos/aurora.mp4');
+
 const desertVideo = require('../../assets/videos/desert.mp4');
+const desertHD = require('../../assets/videos/desert_hd.mp4');
+
 const oceansVideo = require('../../assets/videos/oceans.mp4');
 const forestVideo = require('../../assets/videos/forest.mp4');
+
 const wavesVideo = require('../../assets/videos/waves.mp4');
+const wavesHD = require('../../assets/videos/waves_hd.mp4');
+
 const aerialVideo = require('../../assets/videos/aerial.mp4');
 
 export const RAW_VIDEOS: VideoItem[] = [
@@ -134,7 +144,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: waterfallVideo,
-      upscaledUrl: waterfallVideo,
+      upscaledUrl: waterfallHD,
       bitrateStandard: '720p • 2.6 Mbps',
       bitrateUpscaled: '1080p • 8.8 Mbps (HDR Vivid)',
     },
@@ -158,7 +168,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: mountainVideo,
-      upscaledUrl: mountainVideo,
+      upscaledUrl: mountainHD,
       bitrateStandard: '720p • 2.1 Mbps',
       bitrateUpscaled: '1080p • 7.5 Mbps (AI Clarity)',
     },
@@ -182,7 +192,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: auroraVideo,
-      upscaledUrl: auroraVideo,
+      upscaledUrl: spaceHD,
       bitrateStandard: '720p • 2.5 Mbps',
       bitrateUpscaled: '1080p • 8.3 Mbps (Neural HDR)',
     },
@@ -206,7 +216,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: desertVideo,
-      upscaledUrl: desertVideo,
+      upscaledUrl: desertHD,
       bitrateStandard: '720p • 2.2 Mbps',
       bitrateUpscaled: '1080p • 7.9 Mbps (AI SuperRes)',
     },
@@ -230,7 +240,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: oceansVideo,
-      upscaledUrl: oceansVideo,
+      upscaledUrl: jellyfishHD,
       bitrateStandard: '720p • 2.8 Mbps',
       bitrateUpscaled: '1080p • 9.0 Mbps (AI 60FPS)',
     },
@@ -254,7 +264,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: forestVideo,
-      upscaledUrl: forestVideo,
+      upscaledUrl: waterfallHD,
       bitrateStandard: '720p • 2.3 Mbps',
       bitrateUpscaled: '1080p • 8.0 Mbps (AI Enhanced)',
     },
@@ -278,7 +288,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: wavesVideo,
-      upscaledUrl: wavesVideo,
+      upscaledUrl: wavesHD,
       bitrateStandard: '720p • 2.0 Mbps',
       bitrateUpscaled: '1080p • 7.6 Mbps (UltraHD)',
     },
@@ -302,7 +312,7 @@ export const RAW_VIDEOS: VideoItem[] = [
     posterUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop&q=80',
     streams: {
       standardUrl: aerialVideo,
-      upscaledUrl: aerialVideo,
+      upscaledUrl: mountainHD,
       bitrateStandard: '720p • 2.4 Mbps',
       bitrateUpscaled: '1080p • 8.5 Mbps (Neural Pro)',
     },

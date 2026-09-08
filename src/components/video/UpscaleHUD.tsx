@@ -95,7 +95,8 @@ export const UpscaleHUD = forwardRef<UpscaleHUDHandle, UpscaleHUDProps>(
 
         {/* Floating Glassmorphic AI Upscale Toggle Button */}
         <TouchableOpacity
-          activeOpacity={0.8}
+          activeOpacity={0.7}
+          hitSlop={{ top: 14, bottom: 14, left: 14, right: 14 }}
           onPress={onToggle}
           style={[
             styles.toggleButton,
@@ -105,7 +106,7 @@ export const UpscaleHUD = forwardRef<UpscaleHUDHandle, UpscaleHUDProps>(
           <View style={styles.toggleContent}>
             <Sparkles
               size={16}
-              color={isUpscaled ? colors.secondaryLight : colors.textSecondary}
+              color={isUpscaled ? '#22D3EE' : colors.textSecondary}
             />
             <Text
               style={[
@@ -140,7 +141,8 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     alignItems: 'center',
-    zIndex: 1000,
+    zIndex: 10000,
+    elevation: 30,
   },
   toastCard: {
     flexDirection: 'row',
@@ -149,19 +151,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     paddingVertical: 10,
     borderRadius: 999,
-    borderWidth: 1,
+    borderWidth: 1.5,
     shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.4,
+    shadowOpacity: 0.5,
     shadowRadius: 12,
-    elevation: 10,
+    elevation: 12,
   },
   toastCardActive: {
-    backgroundColor: 'rgba(15, 23, 42, 0.88)',
-    borderColor: colors.secondary,
-    shadowColor: colors.secondary,
+    backgroundColor: 'rgba(15, 23, 42, 0.94)',
+    borderColor: '#06B6D4',
+    shadowColor: '#06B6D4',
   },
   toastCardStandard: {
-    backgroundColor: 'rgba(20, 20, 27, 0.88)',
+    backgroundColor: 'rgba(20, 20, 27, 0.92)',
     borderColor: colors.glassBorder,
     shadowColor: '#000000',
   },
@@ -177,23 +179,23 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 55,
     right: 18,
-    zIndex: 900,
+    zIndex: 9999,
+    elevation: 25,
     borderRadius: 24,
-    borderWidth: 1,
+    borderWidth: 1.5,
     paddingHorizontal: 14,
     paddingVertical: 8,
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 8,
-    elevation: 6,
   },
   toggleButtonActive: {
-    backgroundColor: 'rgba(11, 19, 43, 0.75)',
-    borderColor: colors.secondary,
-    shadowColor: colors.secondary,
-    shadowOpacity: 0.5,
+    backgroundColor: 'rgba(6, 182, 212, 0.22)',
+    borderColor: '#22D3EE',
+    shadowColor: '#06B6D4',
+    shadowOpacity: 0.6,
   },
   toggleButtonInactive: {
-    backgroundColor: colors.glassBackground,
+    backgroundColor: 'rgba(20, 20, 27, 0.75)',
     borderColor: colors.glassBorder,
     shadowColor: '#000000',
     shadowOpacity: 0.2,
@@ -209,13 +211,13 @@ const styles = StyleSheet.create({
     letterSpacing: 0.4,
   },
   toggleTextActive: {
-    color: colors.secondaryLight,
+    color: '#22D3EE',
   },
   toggleTextInactive: {
     color: colors.textSecondary,
   },
   liveBadge: {
-    backgroundColor: colors.secondaryDark,
+    backgroundColor: '#0891B2',
     paddingHorizontal: 6,
     paddingVertical: 2,
     borderRadius: 4,
@@ -227,9 +229,9 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   bitrateText: {
-    color: colors.textMuted,
+    color: '#94A3B8',
     fontSize: 9,
-    fontWeight: '500',
+    fontWeight: '600',
     textAlign: 'center',
     marginTop: 2,
   },
