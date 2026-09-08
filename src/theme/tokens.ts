@@ -1,6 +1,6 @@
 /**
- * LinkSphere Design System Tokens
- * Deep Dark Theme with Glassmorphic styling and vibrant accents
+ * Video Feed Design System Tokens
+ * 60 FPS Dark Theme with Glassmorphism & High-Contrast Accents
  */
 
 export const colors = {

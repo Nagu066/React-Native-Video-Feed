@@ -1,5 +1,5 @@
 {
-  "name": "linksphere-feed",
+  "name": "react-native-video-feed",
   "version": "1.0.0",
   "main": "index.ts",
   "dependencies": {

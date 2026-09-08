@@ -15,7 +15,7 @@ try {
   const mmkvModule = require('react-native-mmkv');
   if (mmkvModule && typeof mmkvModule.createMMKV === 'function') {
     storageInstance = mmkvModule.createMMKV({
-      id: 'linksphere-feed-storage',
+      id: 'video-feed-storage',
     });
   }
 } catch {

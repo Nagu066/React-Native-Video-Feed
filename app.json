@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "linksphere-feed",
-    "slug": "linksphere-feed",
+    "name": "react-native-video-feed",
+    "slug": "react-native-video-feed",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

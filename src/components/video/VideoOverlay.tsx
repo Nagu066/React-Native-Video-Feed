@@ -49,7 +49,7 @@ export const VideoOverlay: React.FC<VideoOverlayProps> = ({
   const handleShare = async () => {
     try {
       await Share.share({
-        message: `Check out this incredible video by @${item.author.username} on LinkSphere: "${item.caption}"`,
+        message: `Check out this incredible video by @${item.author.username}: "${item.caption}"`,
       });
     } catch {
       // ignore

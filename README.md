@@ -1,6 +1,6 @@
-# LinkSphere - Virtualized Video Feed with Gestures & Simulated Upscaling
+# React Native Virtualized Video Feed
 
-A high-performance, 60+ FPS vertically scrolling virtualized video feed built for LinkSphere Technologies. Engineered for aggressive memory recycling, native UI-thread gesture physics, synchronous local persistence, continuous playback stream switching, and Zero Cumulative Layout Shift (CLS).
+A high-performance, 60+ FPS vertically scrolling virtualized video feed built with React Native, Expo, FlashList, and Reanimated v3. Engineered for aggressive memory recycling, native UI-thread gesture physics, synchronous local persistence, continuous playback stream switching, and Zero Cumulative Layout Shift (CLS).
 
 ---
 

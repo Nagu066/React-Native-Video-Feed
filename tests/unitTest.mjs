@@ -25,7 +25,7 @@ const MOCK_ADS = [
   {
     id: 'ad-501',
     type: 'ad',
-    brandName: 'LinkSphere Studio',
+    brandName: 'Cloud Studio',
   },
 ];
 
@@ -89,7 +89,7 @@ function toggleLikeOptimistic(storage, videoId, baselineLikes) {
   return { isLiked: nextLiked, newCount: nextCount };
 }
 
-test('LinkSphere Virtualized Video Feed Test Suite', async (t) => {
+test('Virtualized Video Feed Test Suite', async (t) => {
   await t.test('Task 4: Zero CLS Sponsored Ad Placement (Every 5th Index)', () => {
     const feed = generateFeedWithAds();
 

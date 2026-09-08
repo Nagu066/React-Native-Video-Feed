@@ -39,3 +39,6 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# task prompt specifications
+Virtualized_Video_Feed_Task_LinkSphere.md
